@@ -1,13 +1,27 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  <p>Test</p>
+<ion-content padding style="text-align:center">
+  <form (ngSubmit)="login_user()">
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+    </ion-item>
+    <button ion-button class ="botonLogin" type="submit" block>Login</button>
+  </form>
+
+  <ion-grid>
+    <p style="font-size: 17px;">
+     ¿No tienes cuenta? <a (click)="showRegistroPage()">Regístrate</a>
+    </p>  
+   </ion-grid>
 </ion-content>
