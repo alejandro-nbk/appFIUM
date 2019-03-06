@@ -4,11 +4,11 @@
     <form (ngSubmit)="login_user()">
         <ion-item>
           <ion-label>Nombre: </ion-label>
-          <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+          <ion-input type="text" [(ngModel)]="user.LastName" name="name" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Email: </ion-label>
-          <ion-input type="Email" [(ngModel)]="user.email" name="email" required></ion-input>
+          <ion-input type="Email" [(ngModel)]="user.Email" name="email" required></ion-input>
         </ion-item>
         <ion-button color="light" fill="outline" slot="end" class="botonLogin" type="submit" block>Entrar</ion-button>
       </form>
