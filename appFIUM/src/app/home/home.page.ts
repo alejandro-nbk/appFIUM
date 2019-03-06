@@ -8,19 +8,15 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  user= { nombre: '', password: ''};
+  user= { nombre: '', email: ''};
 
   constructor(public navCtrl : NavController) {
 
   }
 
-  showRegistroPage(){
-    console.log('registro');
-    this.navCtrl.navigateForward('/registro');
-  }
-
   login_user(){
     console.log('login');
+    this.navCtrl.navigateForward('/billetes');
   }
 
 }

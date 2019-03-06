@@ -1,27 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Inicio
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding style="text-align:center">
-  <form (ngSubmit)="login_user()">
-    <ion-item>
-      <ion-label floating>Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
-    </ion-item>
-    <button ion-button class ="botonLogin" type="submit" block>Login</button>
-  </form>
-
-  <ion-grid>
-    <p style="font-size: 17px;">
-     ¿No tienes cuenta? <a (click)="showRegistroPage()">Regístrate</a>
-    </p>  
-   </ion-grid>
+  <ion-img src="../../assets/icon/NbkBlack.png"></ion-img>
+  <div class="formulario">
+    <form (ngSubmit)="login_user()">
+        <ion-item>
+          <ion-label>Nombre: </ion-label>
+          <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email: </ion-label>
+          <ion-input type="Email" [(ngModel)]="user.email" name="email" required></ion-input>
+        </ion-item>
+        <ion-button color="light" fill="outline" slot="end" class="botonLogin" type="submit" block>Entrar</ion-button>
+      </form>
+  </div>
 </ion-content>

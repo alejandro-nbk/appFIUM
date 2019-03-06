@@ -1,10 +1,29 @@
 .botonLogin{
-    background-color: #3961f5;
-    width: 60%;
-    margin: 1.5em 0em;
-    padding: 1em 0em;
+    width: 100%;
+    margin: 2.5em 0em;
     font-size: 20px;
     color: white;
     border-radius: 10px;
+}
+
+.formulario{
+    position: absolute;
+    width: 300px;
+    bottom: 0px;
+    right: 25%;
+    left: 50%;
+    margin-left: -150px;
+}
+
+ion-item {
+    --background: rgba(0,0,0,0);
+    --border-color: white;
+    --color:white;
+    font-size: 18px!important;
+    font-weight: bold;
+}
+
+ion-content{
+    --background: linear-gradient(197deg, rgb(18, 1, 162) 0%, rgb(63, 220, 255) 100%) !important;
 }
 
