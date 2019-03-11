@@ -10,22 +10,18 @@ export class BilletesPage {
 
   botonInactivo = false;
   botonAgotadoInactivo = false;
+  contador = 0;
 
   constructor(public userService:UserService) { }
 
   comprarBillete(){
-    this.userService.present();
-    this.userService.dismiss();
     this.userService.presentAlert("Éxito", "Billete comprado");
     this.botonInactivo = true;
   }
 
   comprarBilleteAgotado(){
-    let contador = 0;
-    this.userService.present();
-    this.userService.dismiss();
-    contador++;
-    switch (contador) {
+    this.contador++;
+    switch (this.contador) {
       case 1:
         this.userService.presentAlert("Agotado", "No quedan billetes de este tipo.");
         break;
