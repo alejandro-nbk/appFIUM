@@ -15,14 +15,13 @@ export class UserService {
 
     generateToken(){
         let url = "https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9T46ZAw5GTfVsJ9ZH6gfVjUv7aIAFZGkq9_2gFl3O_WYl1Auwfmmn7os34T8s0fmdiPT8ClLK.4_43Esj&client_secret=0303688176E3A5A9C0DC765C963D448F9AF67D01A3C689A1F63418B7B9D98483&username=integracion@fium.com.dev&password=fium2019Wyu0VSKokFakTX5f5mFTQQaZ"
-        let headers={'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'application/json'};
-
-        this.http.post(url,{},{headers: headers, observe: 'response'}).subscribe(data=>{
+        let headers={'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'};
+        this.http.post(url, {}, {headers: headers, observe: 'response'}).subscribe(data=>{
             console.log('correcto');
-            console.log(data);
+            console.log(JSON.stringify(data));
         }, err =>{
             console.log('error');
-            console.log(err)
+            console.log(err._body)
         });
     }
 
@@ -30,12 +29,13 @@ export class UserService {
         let url="https://eu19.salesforce.com/services/data/v45.0/sobjects/Contact";
         let httpOptions = { 
             headers:{
-                'Authorization': 'Bearer 00D1i0000009BSi!AQ0AQLhU0su.csT5pDYlPEVQ4Iy6KBxf9b4NJzYpDrwLhK5U8EHvfg.7sO3_MGaNLGUxHd3UAXLbVlbxYIEjV2nt4sSFZtej',
+                'Authorization': 'Bearer 00D1i0000009BSi!AQ0AQMqg_9smEcR.ZmqgUR.ziXDp24z6W_DVJZ4N1kMapum8kdR51.Yv0mDdPqPB.EtkzRd1ULa2NcxcxHxKQbBH6HnD0WPi',
                 'Content-Type':  'application/json'
             }
         };
         this.http.post(url, data,httpOptions).subscribe(resp=>{
             console.log('Contacto creado');
+            console.log(JSON.stringify(resp));
             this.presentLogin();
         }, err=>{
             //Aquí entra cuando el email está duplicado

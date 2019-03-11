@@ -10,7 +10,9 @@ import { UserService } from '../providers/users/users';
 export class HomePage {
 
   user= { LastName: '', 
-          Email: ''};
+          Email: '',
+          AccountId: '0011i0000069vRPAAY'
+  };
 
   constructor(public navCtrl : NavController, public userService : UserService) {
     this.userService.generateToken();

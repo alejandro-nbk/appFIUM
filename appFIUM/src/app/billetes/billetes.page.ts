@@ -11,6 +11,18 @@ export class BilletesPage {
   botonInactivo = false;
   botonAgotadoInactivo = false;
   contador = 0;
+  
+  opportunity= {
+    CloseDate: '',
+    Name: '',
+    StageName: 'Closed Won'
+  }
+
+  opportunityLineItem= {
+    Quantity: 1,
+    PricebookEntryId: '01u1i000001dxygAAA',
+    Product2Id: '01t1i000000GlPZAA0'
+  }
 
   constructor(public userService:UserService) { }
 
