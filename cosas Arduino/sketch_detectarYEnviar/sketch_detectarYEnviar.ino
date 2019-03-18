@@ -96,14 +96,14 @@ void loop() {
     primeraLinea = true;
   }
 
-  // Aquí simplemente nos quedamos con la primera línea de lo que nos responden
-  if (primeraLinea && client.available()){
+  // Aquí simplemente nos quedamos con la primera línea de lo que nos responden - útil para debug
+/*  if (primeraLinea && client.available()){
     line = client.readStringUntil('\r');
     Serial.println(line);
     primeraLinea = false;
     while (client.available()) client.read();
     Serial.println("Terminado de vaciar");
-  }
+  }*/
   
   // Encendemos/Apagamos los LEDs por diversión
   if (luzEncendida) {
