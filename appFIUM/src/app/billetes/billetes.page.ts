@@ -28,6 +28,7 @@ export class BilletesPage {
 
   comprarBillete(){
     this.userService.presentAlert("Éxito", "Billete comprado");
+    this.userService.buyTicket();
     this.botonInactivo = true;
   }
 

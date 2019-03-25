@@ -9,17 +9,16 @@ import { UserService } from '../providers/users/users';
 })
 export class HomePage {
 
-  user= { LastName: '', 
-          Email: '',
-          AccountId: '0011i0000069vRPAAY'
-  };
+  user= { LastName: '', Email: '',};
 
   constructor(public navCtrl : NavController, public userService : UserService) {
-    this.userService.generateToken();
+    //this.userService.generateToken();
   }
 
   login_user(){
-    this.userService.validEmail(this.user);
+    //this.userService.validEmail(this.user);
+    this.userService.user=this.user;
+    this.userService.presentLogin();
   }
 
 }
