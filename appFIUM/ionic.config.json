@@ -1,5 +1,7 @@
 {
   "name": "appFIUM",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
