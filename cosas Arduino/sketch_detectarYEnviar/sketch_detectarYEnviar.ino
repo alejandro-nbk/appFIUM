@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <HTTPClient.h>
 
 // Variables asociadas a los distintos pins
 const int motionSensor = 27;
@@ -21,20 +22,10 @@ char WIFI_PASSWORD[]="Nubik@2017"; //workshopfium
 int estado = WL_IDLE_STATUS;
 
 // Variables para enviar la petición
-WiFiClient client;
-char servername[]="www.google.es";
+HTTPClient http;
 boolean enviarMensaje = false;
 String line;
 boolean escrito = false;
-boolean primeraLinea = false;
-
-// Aquí hay que poner el mensaje que vamos a enviar
-void postMensaje(){
-  client.println("GET /search?q=arduino HTTP/1.1");
-  client.println();
-  
-  Serial.println("Enviado");  
-}
 
 void detectsMovement() {
   // Desactivamos esta interrupción
@@ -81,9 +72,7 @@ void setup() {
   Serial.println("Conectado al WiFi");
   digitalWrite(ledWifi, HIGH);
 
-  // Nos conectamos al servidor
-  if (client.connect(servername, 80)) Serial.println("Conectado al server");
-  
+  http.begin("https://cp03g8z863.execute-api.eu-west-2.amazonaws.com/Prod/calc");
   // Vinculamos el método de detectar movimiento con el sensor
   attachInterrupt(digitalPinToInterrupt(motionSensor), detectsMovement, RISING);
 }
@@ -92,19 +81,12 @@ void loop() {
   // Si ha habido una interrupción, entonces enviamos mensaje
   if (enviarMensaje) {
     enviarMensaje = false;
-    postMensaje();
-    primeraLinea = true;
+    Serial.println("Enviando...");
+    http.GET();
+    Serial.print("Respuesta: ");
+    Serial.println(http.getString());
   }
 
-  // Aquí simplemente nos quedamos con la primera línea de lo que nos responden - útil para debug
-/*  if (primeraLinea && client.available()){
-    line = client.readStringUntil('\r');
-    Serial.println(line);
-    primeraLinea = false;
-    while (client.available()) client.read();
-    Serial.println("Terminado de vaciar");
-  }*/
-  
   // Encendemos/Apagamos los LEDs por diversión
   if (luzEncendida) {
     delay(300);
